@@ -1,0 +1,345 @@
+\documentclass[a4paper,12pt]{article}
+
+% ─── Packages ───────────────────────────────────────────
+\usepackage[top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+% ─── Fonts ──────────────────────────────────────────────
+\setmainfont{Arimo}[
+  Path = ../fonts/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic
+]
+\setsansfont{Arimo}[
+  Path = ../fonts/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic
+]
+
+% Emoji font
+\newfontfamily\emojifont{NotoColorEmoji}[
+  Path = ../fonts/,
+  Extension = .ttf,
+  Renderer = HarfBuzz
+]
+
+% Section header font (Roboto Bold, 20pt, white on dark teal)
+\newfontfamily\headerfont{Roboto}[
+  Path = ../fonts/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold
+]
+\newcommand{\sectionfont}[1]{{\headerfont\fontsize{20pt}{24pt}\selectfont\bfseries #1}}
+
+% Emoji command
+\newcommand{\emoji}[1]{{\emojifont #1}}
+
+% ─── Colors (from DOCX) ────────────────────────────────
+\definecolor{dark-teal}{HTML}{034939}        % section header bg, table header
+\definecolor{gray-border}{HTML}{DBDBDB}      % table borders
+\definecolor{purple-teach}{HTML}{7731D8}     % teaching note title
+\definecolor{near-black}{HTML}{0D1216}       % teaching note body
+
+% ─── Custom tcolorbox styles ───────────────────────────
+\newtcolorbox{activitybox}{
+  enhanced,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={3pt}{0pt}{black},
+  colback=white,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners,
+  breakable
+}
+
+\newtcolorbox{sectionheader}{
+  enhanced,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={3pt}{0pt}{dark-teal},
+  colback=dark-teal,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners
+}
+
+\newtcolorbox{contentbox}{
+  enhanced,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={3pt}{0pt}{black},
+  colback=white,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners,
+  breakable
+}
+
+\newtcolorbox{inputbox}{
+  enhanced,
+  boxrule=0.5pt,
+  colframe=gray-border,
+  colback=white,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners,
+  breakable
+}
+
+\newtcolorbox{tipbox}{
+  enhanced,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={3pt}{0pt}{black},
+  colback=white,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners
+}
+
+\newtcolorbox{teachingnote}{
+  enhanced,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={3pt}{0pt}{black},
+  colback=white,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners
+}
+
+% ─── Remove page numbers ───────────────────────────────
+\pagestyle{empty}
+
+% ─── Document ──────────────────────────────────────────
+\begin{document}
+
+% ═══ Header Banner ═════════════════════════════════════
+\noindent
+\includegraphics[width=\textwidth]{images/header_banner.png}
+
+\vspace{6pt}
+
+% ═══ Activity Description ═════════════════════════════
+\begin{activitybox}
+In this activity, you will design and organize templates for literature notes. You will research common elements found in literary texts and use your findings to create a structured, one-page infographic.
+\end{activitybox}
+
+\vspace{4pt}
+
+% ═══ Section: Read the Given Text ═════════════════════
+\begin{sectionheader}
+\sectionfont{\textcolor{white}{Read the Given Text}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+Read the following passage.
+
+\vspace{4pt}
+
+\begin{contentbox}
+In a small village nestled between rolling hills, lived a young woman named Elara. Elara was known for her kindness and her love for old books. One day, while exploring the attic of her grandmother's house, she discovered a hidden journal. The journal belonged to a traveler who had visited the village a century ago. As Elara read through the faded pages, she became captivated by the traveler's tales of faraway lands and mythical creatures. The journal spoke of a hidden portal, located somewhere in the village, that led to a world of endless possibilities. Driven by curiosity and a thirst for adventure, Elara decided to embark on a quest to find the portal. Along her journey, she encountered mysterious figures, solved ancient riddles, and faced daunting challenges. With each step, Elara's determination grew stronger, and she realized that the greatest adventure lies not in the destination, but in the journey itself.
+
+\vspace{4pt}
+\textit{\textbf{This passage was created using AI.}}
+\end{contentbox}
+
+\vspace{4pt}
+
+% ═══ Section: Define Your Research Focus ══════════════
+\begin{sectionheader}
+\sectionfont{\textcolor{white}{Define Your Research Focus}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+Explore the following thematic options and choose one that interests you:
+
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt, topsep=4pt]
+  \item \textbf{Character Analysis:} How does Elara's character develop throughout the passage?
+  \item \textbf{Theme Identification:} What are the central themes in the passage and how are they developed?
+  \item \textbf{Literary Devices:} What literary devices are used in the passage and how do they contribute to the overall meaning?
+\end{itemize}
+
+\textbf{Now, write down your research focus as a question:}
+
+\vspace{4pt}
+
+\begin{inputbox}
+\textit{[Write your research question here.]}\par
+\vspace{1.5cm}
+\end{inputbox}
+
+\vspace{4pt}
+
+% ═══ Section: Research Questions ══════════════════════
+\begin{sectionheader}
+\sectionfont{\textcolor{white}{Research Questions}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+Follow the steps below to complete this section:
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt, topsep=4pt]
+  \item Based on your research focus, formulate a central question that will guide your analysis.
+  \item Develop supporting questions that will help you investigate different aspects of your main question.
+  \item Use the table to organize your questions and thoughts.
+\end{enumerate}
+
+\vspace{4pt}
+
+% Research Questions Table
+\noindent
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+  \hline
+  \rowcolor{dark-teal} \textcolor{white}{\textbf{Question Type}} & \textcolor{white}{\textbf{Your Thinking}} \\
+  \hline
+  Central Question\par\vspace{1cm} & \vspace{1cm} \\
+  \hline
+  Supporting Question\par\vspace{1cm} & \vspace{1cm} \\
+  \hline
+  \vspace{1cm} & \vspace{1cm} \\
+  \hline
+  \multicolumn{2}{|l|}{\textit{\textbf{+ Add a row or column as needed}}} \\
+  \hline
+\end{tabularx}
+
+\vspace{6pt}
+
+% ═══ Section: Research and Analyze Sources ════════════
+\begin{sectionheader}
+\sectionfont{\textcolor{white}{Research and Analyze Sources}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt, topsep=4pt]
+  \item \textbf{Primary sources:} These are original materials that provide firsthand accounts or direct evidence concerning a topic. In English literature, this includes the novels, poems, plays, and essays written by authors being studied.
+  \item \textbf{Secondary sources:} These sources analyze, interpret, or evaluate primary sources. Examples include literary criticism, scholarly articles, and book reviews.
+  \item \textbf{Tertiary sources:} These sources compile and summarize information from primary and secondary sources. Examples include encyclopedias, textbooks, and literary guides.
+\end{itemize}
+
+\vspace{4pt}
+
+\begin{tipbox}
+\textbf{Research Tip:} When doing research, look for primary and secondary sources from different places. Read books, websites, and articles. Ask: Is this information true? Does it make sense? Use what you learn to answer your questions.
+\end{tipbox}
+
+\vspace{4pt}
+
+% Sources Table
+\noindent
+{\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+  \hline
+  \rowcolor{dark-teal}
+  \textcolor{white}{\textbf{Source (Book, Website, Article, etc)}} &
+  \textcolor{white}{\textbf{Information Found}} &
+  \textcolor{white}{\textbf{Question Answered}} &
+  \textcolor{white}{\textbf{Source Type (Primary, Secondary, or Tertiary)}} \\
+  \hline
+  \vspace{1cm} & \vspace{1cm} & \vspace{1cm} & \vspace{1cm} \\
+  \hline
+  \vspace{1cm} & \vspace{1cm} & \vspace{1cm} & \vspace{1cm} \\
+  \hline
+  \vspace{1cm} & \vspace{1cm} & \vspace{1cm} & \vspace{1cm} \\
+  \hline
+  \vspace{1cm} & \vspace{1cm} & \vspace{1cm} & \vspace{1cm} \\
+  \hline
+  \multicolumn{4}{|l|}{\textit{\textbf{+ Add a row or column as needed}}} \\
+  \hline
+\end{tabularx}
+}
+
+\vspace{6pt}
+
+% ═══ Section: Synthesize Your Findings ════════════════
+\begin{sectionheader}
+\sectionfont{\textcolor{white}{Synthesize Your Findings}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+Create a one-page infographic that synthesizes your research findings. Your infographic should clearly present the key information you've gathered.
+
+Follow the steps below to complete your infographic:
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt, topsep=4pt]
+  \item Identify the main idea or argument from your research.
+  \item Gather evidence from your sources to support your main idea.
+  \item Select visuals, keywords, and design elements that effectively communicate your findings.
+\end{enumerate}
+
+\vspace{6pt}
+
+% Design placeholder
+\noindent
+\begin{center}
+\includegraphics[width=0.75\textwidth]{images/design_placeholder.png}
+\end{center}
+
+\vspace{6pt}
+
+% ═══ Section: Reflection ═════════════════════════════
+\begin{sectionheader}
+\sectionfont{\textcolor{white}{Reflection}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+\textbf{How has your understanding of the passage's themes deepened through your research?}
+
+\vspace{2pt}
+
+\begin{inputbox}
+\textit{[Write your answer here.]}\par
+\vspace{1.5cm}
+\end{inputbox}
+
+\vspace{4pt}
+
+\textbf{What challenges did you encounter during the research process, and how did you overcome them?}
+
+\vspace{2pt}
+
+\begin{inputbox}
+\vspace{1.5cm}
+\end{inputbox}
+
+\vspace{4pt}
+
+\textbf{How can you apply the skills you've developed in this activity to future literary analysis?}
+
+\vspace{2pt}
+
+\begin{inputbox}
+\vspace{1.5cm}
+\end{inputbox}
+
+\vspace{8pt}
+
+% ═══ Teaching Note ═══════════════════════════════════
+\begin{teachingnote}
+\begin{tabularx}{\textwidth}{@{}c X@{}}
+\raisebox{-0.3\height}{\includegraphics[width=0.47in]{images/teaching_icon.png}} &
+{\bfseries\textcolor{purple-teach}{Teaching note}}\par
+\vspace{2pt}
+\textcolor{near-black}{This was generated by AI to give you a head start --- not the final word. You know your students best, so give it a once-over and make it yours.}
+\end{tabularx}
+\end{teachingnote}
+
+\end{document}

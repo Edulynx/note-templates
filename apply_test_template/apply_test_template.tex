@@ -1,0 +1,341 @@
+\documentclass[a4paper,12pt]{article}
+
+% ─── Packages ───────────────────────────────────────────
+\usepackage[top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+% ─── Fonts ──────────────────────────────────────────────
+\setmainfont{Arimo}[
+  Path = ../fonts/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic
+]
+\setsansfont{Arimo}[
+  Path = ../fonts/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic
+]
+
+% Emoji font
+\newfontfamily\emojifont{NotoColorEmoji}[
+  Path = ../fonts/,
+  Extension = .ttf,
+  Renderer = HarfBuzz
+]
+
+% Section header font (Kalam Bold, 20pt)
+\newfontfamily\headerfont{Kalam-Bold}[
+  Path = ../fonts/,
+  Extension = .ttf
+]
+\newcommand{\sectionfont}[1]{{\headerfont\fontsize{20pt}{24pt}\selectfont #1}}
+
+% Emoji command
+\newcommand{\emoji}[1]{{\emojifont #1}}
+
+% ─── Colors (from DOCX) ────────────────────────────────
+\definecolor{teal-header}{HTML}{86BAC6}      % table header row
+\definecolor{teal-light}{HTML}{C2DBE2}       % table label cells
+\definecolor{dark-text}{HTML}{303D36}        % header text color
+\definecolor{gray-border}{HTML}{DBDBDB}      % table borders
+\definecolor{purple-teach}{HTML}{7731D8}     % teaching note title
+
+% ─── Custom tcolorbox styles ───────────────────────────
+\newtcolorbox{activitybox}{
+  enhanced,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={3pt}{0pt}{black},
+  colback=white,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners,
+  breakable
+}
+
+\newtcolorbox{sectionheader}{
+  enhanced,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={3pt}{0pt}{black},
+  colback=white,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners
+}
+
+\newtcolorbox{contentbox}{
+  enhanced,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={3pt}{0pt}{black},
+  colback=white,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners,
+  breakable
+}
+
+\newtcolorbox{inputbox}{
+  enhanced,
+  boxrule=0.5pt,
+  colframe=gray-border,
+  colback=white,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners,
+  breakable
+}
+
+\newtcolorbox{teachingnote}{
+  enhanced,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={3pt}{0pt}{black},
+  colback=white,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners
+}
+
+% ─── Remove page numbers ───────────────────────────────
+\pagestyle{empty}
+
+% ─── Document ──────────────────────────────────────────
+\begin{document}
+
+% ═══ Header Banner ═════════════════════════════════════
+\noindent
+\includegraphics[width=\textwidth]{images/header_banner.png}
+
+\vspace{6pt}
+
+% ═══ Activity Description ═════════════════════════════
+\begin{activitybox}
+\emoji{🎯} In this activity, you will design templates for taking notes on English literature. You'll learn how to identify key elements in a story and organize them into useful notes.
+\end{activitybox}
+
+\vspace{4pt}
+
+% ═══ Section: Welcome to Note-Taking! ═════════════════
+\begin{sectionheader}
+\emoji{🌟} \sectionfont{\textcolor{dark-text}{Welcome to Note-Taking!}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+Effective note-taking is crucial for understanding and remembering literature. Well-organized notes help you identify patterns, analyze characters, and understand themes more easily.
+
+\vspace{4pt}
+
+% Key Concepts Table
+\noindent
+\begin{tabularx}{\textwidth}{|>{\cellcolor{teal-light}\raggedright\arraybackslash}p{3.5cm}|>{\raggedright\arraybackslash}X|}
+  \hline
+  \textbf{\textcolor{dark-text}{What is Plot?}} &
+  A \textbf{plot} is the sequence of events in a story. It typically includes an exposition, rising action, climax, falling action, and resolution. Understanding the plot helps in structuring notes chronologically. \\
+  \hline
+  \textbf{\textcolor{dark-text}{What is Character Analysis?}} &
+  \textbf{Character analysis} involves examining a character's traits, motivations, and role in the story. Analyzing characters helps identify their impact on the plot and themes. \\
+  \hline
+  \textbf{\textcolor{dark-text}{What is Theme?}} &
+  A \textbf{theme} is the central idea or message of a literary work. Themes are often universal truths about life, society, or human nature. \\
+  \hline
+  \textbf{\textcolor{dark-text}{What are Literary Devices?}} &
+  \textbf{Literary devices} are techniques used by writers to create specific effects. Examples include metaphors, similes, and symbolism. \\
+  \hline
+\end{tabularx}
+
+\vspace{6pt}
+
+% ═══ Section: Read the Text ═══════════════════════════
+\begin{sectionheader}
+\emoji{📖} \sectionfont{\textcolor{dark-text}{Read the Text}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+Carefully read the passage below. As you read, think about the key elements of literature -- plot, character, theme, and literary devices.
+
+\vspace{4pt}
+
+\begin{contentbox}
+\textit{In the quaint village of Willowbrook, nestled beside a whispering forest, lived a young woman named Elara. She possessed a spirit as untamed as the woods themselves, yearning for adventures beyond her quiet life. One day, a mysterious traveler arrived, bearing tales of distant lands and forgotten lore. Elara, captivated by his stories, decided to leave Willowbrook and embark on a journey of her own.}
+
+\textit{As she ventured forth, Elara encountered treacherous mountains and shimmering rivers. She met fellow travelers, each with their own unique stories and wisdom. Among them was a wise old mage named Silas, who recognized Elara's potential and offered to teach her the ancient art of magic. Elara eagerly accepted, dedicating herself to mastering the arcane arts.}
+
+\textit{However, her newfound powers attracted the attention of a dark sorcerer named Malkor, who sought to control all magic for his own nefarious purposes. Malkor sent his minions to capture Elara, hoping to harness her abilities. A fierce battle ensued, testing Elara's courage and skills. With the help of Silas and her newfound allies, Elara managed to defeat Malkor and restore peace to the land.}
+
+\textit{Returning to Willowbrook, Elara was no longer the same naive girl who had left. She had faced dangers, learned valuable lessons, and discovered her own strength. Elara used her magic to protect her village and inspire others to embrace their potential. And so, the legend of Elara, the untamed spirit, lived on in the hearts of the people of Willowbrook.}
+
+\vspace{4pt}
+\emoji{📍}\textit{\textbf{This passage was created using AI.}}
+\end{contentbox}
+
+\vspace{4pt}
+
+% ═══ Section: Building Connections ════════════════════
+\begin{sectionheader}
+\emoji{🔗} \sectionfont{\textcolor{dark-text}{Building Connections}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+Now, connect ideas from the text and the tasks you have completed to deepen your understanding of the text.
+
+Complete the table below to check your understanding.
+
+\vspace{4pt}
+
+% Understanding Check Table
+\noindent
+\begin{tabularx}{\textwidth}{|>{\cellcolor{teal-light}\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+  \hline
+  \rowcolor{teal-header}
+  \textbf{\textcolor{dark-text}{Key Concept}} &
+  \textbf{\textcolor{dark-text}{Your Understanding}} &
+  \textbf{\textcolor{dark-text}{Why is this important?}} \\
+  \hline
+  \cellcolor{teal-light}\textbf{\textcolor{dark-text}{Plot}} &
+  \textit{The sequence of events in a story.} &
+  \textit{Helps to understand the story's progression and structure.} \\
+  \hline
+  \cellcolor{teal-light}\textbf{\textcolor{dark-text}{Character Analysis}} &
+  How do you analyze a character in literature?\par\vspace{0.8cm} &
+  Why is character analysis important in understanding the story?\par\vspace{0.8cm} \\
+  \hline
+  \cellcolor{teal-light}\textbf{\textcolor{dark-text}{Theme}} &
+  \vspace{0.8cm} &
+  \vspace{0.8cm} \\
+  \hline
+  \cellcolor{teal-light}\textbf{\textcolor{dark-text}{Literary Devices}} &
+  \vspace{0.8cm} &
+  \vspace{0.8cm} \\
+  \hline
+  \multicolumn{3}{|l|}{\textit{Last Row: Add a row or column as needed}} \\
+  \hline
+\end{tabularx}
+
+\vspace{6pt}
+
+% ═══ Section: Try It Out ══════════════════════════════
+\begin{sectionheader}
+\emoji{✍️} \sectionfont{\textcolor{dark-text}{Try It Out}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+Use what you've learned about plot, character analysis, theme, and literary devices to respond to the prompts. Use the information you have gathered to respond.
+
+\vspace{4pt}
+
+% Questions Table
+\noindent
+\begin{tabularx}{\textwidth}{|>{\cellcolor{teal-light}\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+  \hline
+  \textbf{\textcolor{dark-text}{Imagine you are creating a prequel to the story of Elara. What events would you include to set the stage for her journey? Think about how you would introduce the key themes and characters.}} &
+  Write your answer here\par\vspace{1.5cm} \\
+  \hline
+  \textbf{\textcolor{dark-text}{How might the story change if Malkor had succeeded in capturing Elara? Discuss potential alternate themes.}} &
+  \vspace{1.5cm} \\
+  \hline
+  \textbf{\textcolor{dark-text}{Identify and explain an important symbol in the text and its relationship to a literary device.}} &
+  \vspace{1.5cm} \\
+  \hline
+\end{tabularx}
+
+\vspace{6pt}
+
+% ═══ Section: Show What You Learned ═══════════════════
+\begin{sectionheader}
+\emoji{🎬} \sectionfont{\textcolor{dark-text}{Show What You Learned}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+Now you will create a project to show your understanding of the key elements of literature in a new and creative way.
+
+Create a short video trailer for a movie adaptation of Elara's story. Use Magic Media or Elements to bring your vision to life.
+
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt, topsep=4pt]
+  \item \textbf{Plan} your trailer by outlining the key scenes and moments you want to highlight.
+  \item \textbf{Gather} visuals, either by finding images or using Magic Media to generate scenes.
+  \item \textbf{Record} your voiceover, summarizing the plot and introducing the main characters and themes.
+  \item \textbf{Edit} your video, combining the visuals and voiceover into a compelling trailer.
+  \item \textbf{Share} your trailer with the class, explaining your creative choices.
+\end{itemize}
+
+\vspace{6pt}
+
+% Design placeholder
+\noindent
+\begin{center}
+\includegraphics[width=0.75\textwidth]{images/design_placeholder.png}
+\end{center}
+
+\vspace{6pt}
+
+% ═══ Section: Reflect on Learning ═════════════════════
+\begin{sectionheader}
+\emoji{🤔} \sectionfont{\textcolor{dark-text}{Reflect on Learning}}
+\end{sectionheader}
+
+\vspace{4pt}
+
+Take a moment to reflect on the work you've completed in this activity. Consider your understanding of key literature elements and how you've applied them.
+
+\vspace{4pt}
+
+\textbf{How has designing these note-taking templates improved your approach to studying literature?}
+
+\vspace{2pt}
+
+\begin{inputbox}
+\textit{[Write your answer here.]}\par
+\vspace{1.5cm}
+\end{inputbox}
+
+\vspace{4pt}
+
+\textbf{What was the most challenging aspect of analyzing the text, and how did you overcome it?}
+
+\vspace{2pt}
+
+\begin{inputbox}
+\vspace{1.5cm}
+\end{inputbox}
+
+\vspace{4pt}
+
+\textbf{In what ways can you apply these note-taking templates to future literature studies?}
+
+\vspace{2pt}
+
+\begin{inputbox}
+\vspace{1.5cm}
+\end{inputbox}
+
+\vspace{8pt}
+
+% ═══ Teaching Note ═══════════════════════════════════
+\begin{teachingnote}
+\begin{tabularx}{\textwidth}{@{}c X@{}}
+\raisebox{-0.3\height}{\includegraphics[width=0.47in]{images/teaching_icon.png}} &
+{\bfseries\textcolor{purple-teach}{Teaching note}}\par
+\vspace{2pt}
+This was generated by AI to give you a head start --- not the final word. You know your students best, so give it a once-over and make it yours.
+\end{tabularx}
+\end{teachingnote}
+
+\end{document}

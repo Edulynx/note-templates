@@ -1,0 +1,577 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% ─── Fonts ──────────────────────────────────────────────
+\setmainfont{Arimo}[
+  Path = ../fonts/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic
+]
+
+\newfontfamily\headingfont{SourceSerifPro}[
+  Path = ../fonts/,
+  Extension = .otf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold
+]
+
+\newfontfamily\monofont{Roboto}[
+  Path = ../fonts/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold
+]
+
+% ─── Colors ─────────────────────────────────────────────
+\definecolor{accent}{HTML}{7731D8}
+\definecolor{accentlight}{HTML}{F3E8FF}
+\definecolor{tealaccent}{HTML}{034939}
+\definecolor{tipgreen}{HTML}{E8F5E9}
+\definecolor{warnred}{HTML}{FFF3E0}
+\definecolor{codebg}{HTML}{F5F5F5}
+\definecolor{darktext}{HTML}{1A1A1A}
+
+\color{darktext}
+
+% ─── Headings ───────────────────────────────────────────
+\titleformat{\section}
+  {\headingfont\fontsize{22pt}{26pt}\selectfont\bfseries\color{accent}}
+  {\thesection}{0.5em}{}
+\titleformat{\subsection}
+  {\headingfont\fontsize{16pt}{20pt}\selectfont\bfseries\color{tealaccent}}
+  {\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}
+  {\bfseries\large\color{darktext}}
+  {\thesubsubsection}{0.5em}{}
+
+% ─── Custom boxes ───────────────────────────────────────
+\newtcolorbox{tipbox}[1][Tip]{
+  enhanced, boxrule=0pt, frame hidden,
+  borderline west={4pt}{0pt}{tealaccent},
+  colback=tipgreen,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  sharp corners, fonttitle=\bfseries, title={#1}, breakable
+}
+
+\newtcolorbox{warnbox}[1][Important]{
+  enhanced, boxrule=0pt, frame hidden,
+  borderline west={4pt}{0pt}{red!60!black},
+  colback=warnred,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  sharp corners, fonttitle=\bfseries, title={#1}, breakable
+}
+
+\newtcolorbox{codebox}{
+  enhanced, boxrule=0.5pt,
+  colframe=codebg!80!black, colback=codebg,
+  left=10pt, right=10pt, top=6pt, bottom=6pt,
+  sharp corners, breakable
+}
+
+\newtcolorbox{stepbox}[1][]{
+  enhanced, boxrule=0pt, frame hidden,
+  borderline west={4pt}{0pt}{accent},
+  colback=accentlight,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  sharp corners, breakable
+}
+
+% ─── Header / Footer ───────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{accent}\headingfont EduLynx LaTeX Templates}
+\fancyhead[R]{\small\color{accent}\headingfont User Guide}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{accent}\leaders\hrule height \headrulewidth\hfill}}
+
+% ─── Document ──────────────────────────────────────────
+\begin{document}
+
+% ═══ Title Page ════════════════════════════════════════
+\begin{titlepage}
+\centering
+\vspace*{4cm}
+
+{\headingfont\fontsize{36pt}{42pt}\selectfont\bfseries\color{accent}
+EduLynx\\LaTeX Templates}
+
+\vspace{1cm}
+
+{\fontsize{18pt}{22pt}\selectfont User Guide}
+
+\vspace{2cm}
+
+{\large For mass-producing English literature note worksheets}
+
+\vspace{1cm}
+
+{\color{gray} No programming experience required.}
+
+\vfill
+
+{\small Version 1.1 --- April 2026}
+\end{titlepage}
+
+% ═══ Table of Contents ═════════════════════════════════
+\tableofcontents
+\newpage
+
+% ═══════════════════════════════════════════════════════
+\section{How This Project Works}
+% ═══════════════════════════════════════════════════════
+
+This project helps you mass-produce professional PDF worksheets for English literature classes. It is built around two concepts:
+
+\subsection{Templates vs Notes}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Templates} & The base designs. These define the look and layout of a worksheet --- the colours, section headers, tables, and structure. \textbf{You do not edit these directly.} \\
+\midrule
+\textbf{Notes} & The actual worksheets you create. Each note is a \textit{copy} of a template, filled in with content for a specific topic (e.g. ``Macbeth --- Theme of Ambition''). \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{The workflow}
+
+\begin{enumerate}[itemsep=8pt]
+  \item \textbf{Pick a template} that has the layout you want (purple, teal, dark teal, etc.).
+  \item \textbf{Create a new note} from that template (the project has a tool that does this for you).
+  \item \textbf{Use AI (ChatGPT, Claude, etc.)} to generate the text content for your topic.
+  \item \textbf{Paste the content} into the note file.
+  \item \textbf{Build the PDF} with a single double-click.
+  \item \textbf{Share the PDF} with students (print or digital).
+\end{enumerate}
+
+You can repeat steps 2--6 as many times as you need, for as many topics as you like. Each note is independent.
+
+\subsection{Available templates}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Template} & \textbf{Style} & \textbf{Best for} \\
+\midrule
+lang\_note\_template & Purple, serif headers & Designing note-taking templates \\
+apply\_test\_template & Teal, handwritten headers & Applying and testing notes \\
+research\_common\_template & Dark teal, modern & Researching literary elements \\
+copy\_apply\_test\_template & Teal (spare copy) & Same as apply\_test \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+% ═══════════════════════════════════════════════════════
+\section{One-Time Setup}
+% ═══════════════════════════════════════════════════════
+
+You only need to do this once on each computer.
+
+\subsection{Step 1 --- Install the PDF engine (LuaLaTeX)}
+
+LuaLaTeX is the program that turns your note files into PDFs. Think of it like a printer driver --- it runs in the background.
+
+\subsubsection{On Windows}
+
+\begin{stepbox}
+\begin{enumerate}[itemsep=6pt]
+  \item Open your web browser and go to \textbf{https://miktex.org/download}
+  \item Click the \textbf{Download} button for Windows.
+  \item Open the downloaded file and follow the installer.
+  \item When asked about ``Install missing packages on-the-fly'', choose \textbf{Yes}.
+  \item When asked ``Install for'', choose \textbf{All users} (if available).
+  \item Finish the installer and \textbf{restart your computer}.
+\end{enumerate}
+\end{stepbox}
+
+\subsubsection{On Mac}
+
+\begin{stepbox}
+\begin{enumerate}[itemsep=6pt]
+  \item Go to \textbf{https://tug.org/mactex/}
+  \item Download the \textbf{MacTeX} installer (about 4 GB).
+  \item Open the downloaded file and follow the installer.
+\end{enumerate}
+\end{stepbox}
+
+\subsubsection{On Linux}
+
+\begin{stepbox}
+Open a terminal and type:
+
+{\monofont sudo apt install texlive-full}
+
+Press Enter and type your password when asked.
+\end{stepbox}
+
+\subsection{Step 2 --- Install Python}
+
+Python runs the helper scripts (creating notes, building PDFs).
+
+\subsubsection{On Windows}
+
+\begin{stepbox}
+\begin{enumerate}[itemsep=6pt]
+  \item Go to \textbf{https://python.org/downloads/}
+  \item Click the big \textbf{Download Python} button.
+  \item Open the downloaded file.
+  \item \textbf{Very important:} At the bottom of the first screen, tick the checkbox \textbf{``Add Python to PATH''} before clicking Install.
+  \item Click \textbf{Install Now} and wait for it to finish.
+\end{enumerate}
+\end{stepbox}
+
+\begin{warnbox}[Do not skip the PATH checkbox]
+If you miss the ``Add Python to PATH'' checkbox, none of the scripts will work. If this happens, uninstall Python and reinstall it with the box ticked.
+\end{warnbox}
+
+\subsubsection{On Mac / Linux}
+
+Python is usually already installed. You can skip this step.
+
+% ═══════════════════════════════════════════════════════
+\section{What Is a Terminal (and How to Open One)}
+\label{sec:terminal}
+% ═══════════════════════════════════════════════════════
+
+A \textbf{terminal} (called \textbf{Command Prompt} on Windows) is a window where you type text commands instead of clicking buttons. You will only need it occasionally --- most tasks can be done by double-clicking.
+
+\subsection{Opening the terminal}
+
+\subsubsection{On Windows}
+
+\begin{stepbox}
+\begin{enumerate}[itemsep=6pt]
+  \item Press the \textbf{Windows key} on your keyboard (the flag icon, bottom-left).
+  \item Type \textbf{cmd} --- you will see ``Command Prompt'' appear.
+  \item Click on \textbf{Command Prompt} to open it.
+  \item A black window appears with a blinking cursor.
+\end{enumerate}
+\end{stepbox}
+
+\subsubsection{On Mac}
+
+\begin{stepbox}
+\begin{enumerate}[itemsep=6pt]
+  \item Press \textbf{Command + Space} to open Spotlight Search.
+  \item Type \textbf{Terminal} and press Enter.
+\end{enumerate}
+\end{stepbox}
+
+\subsubsection{On Linux}
+
+\begin{stepbox}
+Press \textbf{Ctrl + Alt + T} to open a terminal window.
+\end{stepbox}
+
+\subsection{Navigating to the project folder}
+
+After opening the terminal, you need to tell it where the project is:
+
+\begin{tipbox}[Finding the folder path]
+\textbf{On Windows:} Open File Explorer, navigate to the \texttt{latex\_templates} folder, then click on the address bar at the top. It will show something like \texttt{C:\textbackslash Users\textbackslash YourName\textbackslash Documents\textbackslash latex\_templates}. Copy this.
+
+\textbf{On Mac:} Open Finder, navigate to the folder, then press \textbf{Option} and right-click it. Choose ``Copy as Pathname''.
+\end{tipbox}
+
+In the terminal, type \textbf{cd}, a space, then paste the path:
+
+\begin{codebox}
+{\monofont cd C:\textbackslash Users\textbackslash YourName\textbackslash Documents\textbackslash latex\_templates}
+\end{codebox}
+
+Press \textbf{Enter}.
+
+% ═══════════════════════════════════════════════════════
+\section{Creating a New Note}
+\label{sec:create}
+% ═══════════════════════════════════════════════════════
+
+Every time you want to make a worksheet for a new topic, you create a \textbf{new note} from a template.
+
+\subsection{The easy way --- double-click (recommended)}
+
+\begin{stepbox}
+\textbf{On Windows:} Double-click \textbf{new\_note.bat}
+
+\textbf{On Mac/Linux:} Double-click \textbf{new\_note.sh}
+
+A window will appear and ask you two questions:
+\begin{enumerate}[itemsep=4pt]
+  \item \textbf{Pick a template} --- type the number of the template you want and press Enter.
+  \item \textbf{Note name} --- type a short name for your notes, for example \texttt{macbeth\_themes} or \texttt{romeo\_juliet\_act1}. Press Enter.
+\end{enumerate}
+
+The tool creates a new folder inside \texttt{notes/} with your note, ready to edit.
+\end{stepbox}
+
+\subsection{Via terminal (alternative)}
+
+\begin{codebox}
+{\monofont python scripts/new\_note.py lang\_note\_template macbeth\_themes}
+\end{codebox}
+
+This creates \texttt{notes/macbeth\_themes/} with a copy of the purple template.
+
+\subsection{What gets created}
+
+\begin{codebox}
+{\monofont
+notes/\\
+~~macbeth\_themes/\\
+~~~~images/~~~~~~~~~~~~~(banner and icons, copied from template)\\
+~~~~macbeth\_themes.tex~~(the file you edit)
+}
+\end{codebox}
+
+The templates themselves are never modified. You can create as many notes as you need.
+
+% ═══════════════════════════════════════════════════════
+\section{Using AI to Generate Content}
+% ═══════════════════════════════════════════════════════
+
+Use \textbf{ChatGPT}, \textbf{Claude}, or any AI to generate the text for your notes. This is the fastest way to produce worksheets for many topics.
+
+\subsection{Sample prompt (copy and paste this)}
+
+\begin{stepbox}
+I need content for a high school English literature worksheet.
+
+\textbf{Topic:} [e.g. Shakespeare's Macbeth]\\
+\textbf{Focus:} [e.g. Theme of ambition and its consequences]
+
+Please give me the following, as \textbf{plain text only} (no special formatting):
+
+\begin{enumerate}[itemsep=4pt]
+  \item A reading passage (200--300 words) about this topic, suitable for high school students.
+  \item Three focus areas, each with a bold label and a guiding question. Example format: ``Character Analysis: How does Macbeth's character change throughout the play?''
+  \item A research tip (2--3 sentences) related to the topic.
+  \item Three reflection questions that encourage critical thinking.
+  \item Four key vocabulary terms with short definitions relevant to the topic.
+\end{enumerate}
+
+\textbf{Important:} Do not use the characters \% \$ \& \# or \_ in your response. Write ``percent'' instead of \%, ``dollars'' instead of \$, and ``and'' instead of \&.
+\end{stepbox}
+
+\subsection{Pasting content into your note}
+
+\begin{enumerate}[itemsep=6pt]
+  \item \textbf{Generate the content} using the prompt above.
+  \item \textbf{Open your note's .tex file} (inside \texttt{notes/your\_note\_name/}).
+  \item \textbf{Find the matching section} --- for example, the reading passage, the bullet list of focus areas, or the reflection questions.
+  \item \textbf{Select the existing placeholder text} and paste your new content over it.
+  \item \textbf{Save the file.}
+\end{enumerate}
+
+\begin{tipbox}[Work one section at a time]
+Replace one section, build the PDF to check it looks right, then move to the next section. If something goes wrong, you will know exactly where the problem is.
+\end{tipbox}
+
+% ═══════════════════════════════════════════════════════
+\section{Editing a Note}
+% ═══════════════════════════════════════════════════════
+
+\subsection{Opening the file}
+
+\begin{enumerate}[itemsep=6pt]
+  \item Open File Explorer (Windows) or Finder (Mac).
+  \item Go to the \texttt{notes} folder inside the project.
+  \item Open your note's folder (e.g. \texttt{macbeth\_themes}).
+  \item \textbf{Right-click} the \texttt{.tex} file and choose \textbf{Open with}:
+    \begin{itemize}
+      \item \textbf{Windows:} Choose \textbf{Notepad} (or install \textbf{Notepad++} from notepad-plus-plus.org for a better experience).
+      \item \textbf{Mac:} Choose \textbf{TextEdit}. If it looks strange, go to Format > Make Plain Text.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{What you CAN safely change}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Element} & \textbf{How to find and change it} \\
+\midrule
+Section titles & Look for \texttt{\textbackslash sectionfont\{...\}} --- change the text inside the braces. \\
+Plain text & Any line without a \texttt{\textbackslash} at the start. Edit freely. \\
+Bold text & Inside \texttt{\textbackslash textbf\{...\}} --- change the words, keep the braces. \\
+Italic text & Inside \texttt{\textbackslash textit\{...\}} --- same idea. \\
+Bullet items & Lines starting with \texttt{\textbackslash item} --- change text, add or remove lines. \\
+Table cells & Text between \texttt{\&} (column dividers) and \texttt{\textbackslash\textbackslash} (row ends). \\
+Answer boxes & Text inside \texttt{\textbackslash begin\{inputbox\}} and \texttt{\textbackslash end\{inputbox\}}. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{What NOT to change}
+
+\begin{warnbox}[Leave these alone]
+\begin{itemize}[itemsep=4pt]
+  \item Everything above the line \texttt{\textbackslash begin\{document\}} --- this controls fonts, colours, and layout.
+  \item \texttt{\textbackslash begin\{...\}} and \texttt{\textbackslash end\{...\}} pairs --- always keep them matched.
+  \item \texttt{\textbackslash emoji\{...\}} commands --- these insert emoji icons.
+  \item \texttt{\textbackslash includegraphics} lines --- these insert images.
+  \item \texttt{\textbackslash vspace}, \texttt{\textbackslash par}, \texttt{\textbackslash noindent} --- these control spacing.
+\end{itemize}
+\end{warnbox}
+
+\subsection{Special characters to watch out for}
+
+Some characters have special meaning in LaTeX. If your text contains them, add a backslash before them:
+
+\begin{center}
+\begin{tabular}{c c l}
+\toprule
+\textbf{Character} & \textbf{Type this instead} & \textbf{Example} \\
+\midrule
+\% & \textbackslash\% & ``50\textbackslash\% of students'' \\
+\$ & \textbackslash\$ & ``costs \textbackslash\$5'' \\
+\& & \textbackslash\& & ``Tom \textbackslash\& Jerry'' \\
+\# & \textbackslash\# & ``item \textbackslash\#3'' \\
+\_ & \textbackslash\_ & ``first\textbackslash\_name'' \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ═══════════════════════════════════════════════════════
+\section{Building the PDF}
+% ═══════════════════════════════════════════════════════
+
+After editing a note, you need to ``build'' it to create the final PDF.
+
+\subsection{Build all notes --- double-click (recommended)}
+
+\begin{stepbox}
+\textbf{On Windows:} Double-click \textbf{build\_all.bat}
+
+\textbf{On Mac/Linux:} Double-click \textbf{build\_all.sh}
+
+This builds every note inside the \texttt{notes/} folder. The finished PDFs appear inside each note's folder.
+\end{stepbox}
+
+\subsection{Build a single note (via terminal)}
+
+\begin{codebox}
+{\monofont python scripts/build\_pdf.py notes/macbeth\_themes/}
+\end{codebox}
+
+To build and immediately open the PDF:
+
+\begin{codebox}
+{\monofont python scripts/build\_pdf.py notes/macbeth\_themes/ --open}
+\end{codebox}
+
+% ═══════════════════════════════════════════════════════
+\section{Quick Reference --- The Complete Workflow}
+% ═══════════════════════════════════════════════════════
+
+Here is the entire process at a glance:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\textbf{Step} & \textbf{Action} & \textbf{How} \\
+\midrule
+1 & Create a note & Double-click \texttt{new\_note.bat} (or \texttt{.sh}) \\
+2 & Generate content & Copy the AI prompt from Section 5, paste into ChatGPT or Claude \\
+3 & Edit the note & Open \texttt{notes/<name>/<name>.tex} in Notepad, paste content \\
+4 & Build the PDF & Double-click \texttt{build\_all.bat} (or \texttt{.sh}) \\
+5 & Find the PDF & Open \texttt{notes/<name>/<name>.pdf} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Repeat for each new topic. The templates stay untouched.
+
+% ═══════════════════════════════════════════════════════
+\section{Troubleshooting}
+% ═══════════════════════════════════════════════════════
+
+\subsection{``lualatex is not recognized'' / ``command not found''}
+
+LuaLaTeX is not installed or not in your PATH.
+
+\textbf{Fix:} Reinstall MiKTeX (Windows) or MacTeX (Mac). Restart your computer after installation.
+
+\subsection{``Font not found'' errors}
+
+All required fonts are bundled in the \texttt{fonts/} folder.
+
+\textbf{Fix:} Make sure \texttt{fonts/} exists and contains \texttt{.ttf} and \texttt{.otf} files. Do not delete or move this folder.
+
+\subsection{Strange characters or missing emoji}
+
+The wrong engine is being used.
+
+\textbf{Fix:} Make sure you are using \textbf{LuaLaTeX}, not pdfLaTeX. The double-click build scripts already use the correct engine.
+
+\subsection{``Runaway argument'' or ``Missing \} inserted''}
+
+There is a typo --- usually an unescaped special character or unmatched brace.
+
+\textbf{Fix:} Search your text for \texttt{\%}, \texttt{\$}, \texttt{\&}, \texttt{\#}, or \texttt{\_} and add a backslash before each. Check that every \texttt{\{} has a matching \texttt{\}}.
+
+\subsection{MiKTeX asks to install packages}
+
+This is normal. Click \textbf{Install}. It will download what it needs automatically.
+
+\subsection{The PDF did not update}
+
+Make sure you \textbf{saved the .tex file} before building.
+
+% ═══════════════════════════════════════════════════════
+\section{Project Folder Structure}
+% ═══════════════════════════════════════════════════════
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Item} & \textbf{Purpose} \\
+\midrule
+\texttt{fonts/} & All required fonts (bundled). Do not delete. \\
+\texttt{originals/} & Original Word documents, for reference only. \\
+\texttt{lang\_note\_template/} & Purple template (base design --- do not edit). \\
+\texttt{apply\_test\_template/} & Teal template (base design --- do not edit). \\
+\texttt{research\_common\_template/} & Dark teal template (base design --- do not edit). \\
+\texttt{copy\_apply\_test\_template/} & Spare teal template (base design --- do not edit). \\
+\texttt{notes/} & \textbf{Your notes go here.} Each subfolder is one worksheet. \\
+\texttt{scripts/new\_note.py} & Creates a new note from a template. \\
+\texttt{scripts/build\_pdf.py} & Builds a note into a PDF. \\
+\texttt{new\_note.bat} / \texttt{.sh} & Double-click to create a new note. \\
+\texttt{build\_all.bat} / \texttt{.sh} & Double-click to build all notes. \\
+\texttt{setup.py} & One-time setup (Python environment). \\
+\texttt{user\_guide/user\_guide.pdf} & This guide. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\vfill
+
+\begin{center}
+\rule{0.5\textwidth}{0.5pt}
+
+\vspace{6pt}
+{\small\color{gray} EduLynx LaTeX Templates --- User Guide v1.1}
+\end{center}
+
+\end{document}
